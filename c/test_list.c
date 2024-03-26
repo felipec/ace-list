@@ -35,7 +35,7 @@ static inline void node_del(struct node *node)
 	free(node);
 }
 
-int test(int times)
+void test(int times)
 {
 	struct node *stash[256];
 
@@ -56,8 +56,6 @@ int test(int times)
 			}
 		}
 	}
-
-	return 0;
 }
 
 int main(void)
