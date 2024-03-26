@@ -5,6 +5,8 @@
 
 #define N 1000000
 
+#define array_size(a) (sizeof(a) / sizeof(*a))
+
 static struct list_head head = LIST_HEAD_INIT(head);
 
 struct node {
@@ -37,11 +39,11 @@ static inline void node_del(struct node *node)
 
 void test(int times)
 {
-	struct node *stash[256];
+	struct node *stash[array_size(actions)];
 
 	for (int round = 0; round < times; round++) {
 		int stash_i = 0;
-		for (int i = 0; i < 256; i++) {
+		for (size_t i = 0; i < array_size(stash); i++) {
 			const struct action *action = &actions[i];
 			switch (action->type) {
 			case 0:
