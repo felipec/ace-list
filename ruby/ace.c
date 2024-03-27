@@ -59,6 +59,7 @@ VALUE rb_list_del(VALUE self, VALUE rb_node)
 	struct node *node = rb_check_typeddata(rb_node, &node_type);
 
 	list_del(&node->list);
+	free(node);
 
 	return Qnil;
 }
