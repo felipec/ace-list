@@ -40,9 +40,9 @@ func (head *Head[T]) Del(n *Node[T]) {
 
 func (head *Head[T]) Each() func(yield func(*T)) {
     return func(yield func(*T)) {
-        // Pretend the *Head is a *Node
-        for p := (*Node[T])(unsafe.Pointer(head.next)); &p.head != head; p = (*Node[T])(unsafe.Pointer(p.head.next)) {
-            yield(&p.Data);
+        for p := head.next; p != head; p = p.next {
+            // Pretend the *Head is a *Node
+            yield(&((*Node[T])(unsafe.Pointer(p))).Data);
         }
     }
 }
