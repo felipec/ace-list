@@ -1,7 +1,7 @@
 package main
 
 import (
-    "main/list"
+    "main/list_gen"
 )
 
 type testData struct {
