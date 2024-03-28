@@ -10,7 +10,7 @@ struct node {
 	VALUE obj;
 };
 
-static void llist_free(void *ptr)
+static void list_free(void *ptr)
 {
 	struct node *p;
 	list_for_each_entry_safe(p, (struct list_head *)ptr, list)
@@ -25,7 +25,7 @@ const rb_data_type_t node_type = {
 const rb_data_type_t list_type = {
 	.wrap_struct_name = "ace_list",
 	.function = {
-		.dfree = llist_free,
+		.dfree = list_free,
 	},
 };
 
