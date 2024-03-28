@@ -14,7 +14,7 @@ var actions = [][2]int { {0, 0}, {0, 0}, {0, 0}, {0, 0}, {1, 0}, {1, 0}, {1, 0},
 
 var list = llist.Head[testData]{};
 
-func add_node(value int) *llist.Node[testData] {
+func node_add(value int) *llist.Node[testData] {
     n := llist.Node[testData]{Data: testData {value: value}};
     list.Add(&n);
     return &n;
@@ -33,7 +33,7 @@ func test(times int) {
                     continue;
                 }
             case 1:
-                stash[stash_i] = add_node(round); stash_i++;
+                stash[stash_i] = node_add(round); stash_i++;
             case 2:
                 list.Del(stash[index]);
             }
